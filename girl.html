@@ -106,13 +106,7 @@
             document.getElementById('output').style.display = 'inline-block';
             document.getElementById('myForm').style.display = 'none';
         }
-
-        document.getElementById('output').addEventListener('click', function (event) {
-            var rect = document.getElementById('output').getBoundingClientRect();
-            var top = event.clientY - rect.top;
-            var left = event.clientX - rect.left;
-            console.log('Top:', top, 'Left:', left);
-        });
+        
     </script>
     </script>
 </body>
