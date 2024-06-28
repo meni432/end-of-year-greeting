@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form and Picture</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #output {
+            position: relative;
+            display: inline-block;
+        }
+        #output img {
+            width: 794px;
+            height: auto;
+        }
+        #nameOutput, #classOutput {
+            position: absolute;
+            color: black;
+            /* background: rgba(0, 0, 0, 0.5); */
+            padding: 5px;
+            font-size: 25px;
+            text-align: center;
+        }
+        #nameOutput {
+            top: 260px;
+            left: 173px;
+        }
+        #classOutput {
+            top: 312px;
+            left: 331px;
+        }
+        @media print {
+            form {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="class">Class:</label>
+        <input type="text" id="class" name="class"><br><br>
+        <button type="button" onclick="updatePicture()">Submit</button>
+    </form>
+    <div id="output">
+        <img src="girl.png" alt="Your Image">
+
+        <div id="nameOutput"></div>
+        <div id="classOutput"></div>
+    </div>
+
+    <script>
+        function updatePicture() {
+            var name = document.getElementById('name').value;
+            var className = document.getElementById('class').value;
+            document.getElementById('nameOutput').innerText = name;
+            document.getElementById('classOutput').innerText = className;
+        }
+
+        document.getElementById('output').addEventListener('click', function(event) {
+            var rect = document.getElementById('output').getBoundingClientRect();
+            var top = event.clientY - rect.top;
+            var left = event.clientX - rect.left;
+            console.log('Top:', top, 'Left:', left);
+        });
+    </script>
+    </script>
+</body>
+</html>
