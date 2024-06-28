@@ -134,12 +134,20 @@
 
             document.getElementById('myForm').style.display = 'none';
 
-            // on click on canvas, print the position of the click
-            canvas.addEventListener('click', function (event) {
-                var rect = canvas.getBoundingClientRect();
-                var x = event.clientX - rect.left;
-                var y = event.clientY - rect.top;
-                console.log('x: ' + x + ', y: ' + y);
+            // // on click on canvas, print the position of the click
+            // canvas.addEventListener('click', function (event) {
+            //     var rect = canvas.getBoundingClientRect();
+            //     var x = event.clientX - rect.left;
+            //     var y = event.clientY - rect.top;
+            //     console.log('x: ' + x + ', y: ' + y);
+            // });
+
+            // on click on canvas download the image
+            canvas.addEventListener('click', function () {
+                var link = document.createElement('a');
+                link.href = canvas.toDataURL();
+                link.download = 'greeting.png';
+                link.click();
             });
         }
     </script>
