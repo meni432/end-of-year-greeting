@@ -12,34 +12,9 @@
             margin: 20px;
         }
 
-        #output {
-            position: relative;
+        canvas {
             display: none;
-        }
-
-        #output img {
-            width: 794px;
-            height: auto;
-        }
-
-        #nameOutput,
-        #classOutput {
-            position: absolute;
-            color: black;
-            /* background: rgba(0, 0, 0, 0.5); */
-            padding: 5px;
-            font-size: 25px;
-            text-align: center;
-        }
-
-        #nameOutput {
-            top: 260px;
-            left: 173px;
-        }
-
-        #classOutput {
-            top: 312px;
-            left: 331px;
+            border: 1px solid black;
         }
 
         form {
@@ -77,6 +52,10 @@
             form, h1 {
                 display: none;
             }
+
+            canvas {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -87,27 +66,82 @@
         <input type="text" id="name" name="name"><br><br>
         <label for="class">כיתה</label>
         <input type="text" id="class" name="class"><br><br>
+        <label for="sel-order">סדר ושמירה על הציוד והחדר שלך</label>
+        <select id="sel-order" name="sel-order">
+            <option >משתפר ועושה מאמצים</option>
+            <option >מצויין</option>
+            <option > טוב מאוד מאוד</option>
+            <option >אלוף</option>
+        </select><br><br>
+        <label for="sel-friend">חבר טוב ונאמן</label>
+        <select id="sel-friend" name="sel-friend">
+            <option >משתפר ועושה מאמצים</option>
+            <option >מצויין</option>
+            <option > טוב מאוד מאוד</option>
+            <option >אלוף</option>
+        </select><br><br>
+        <label for="sel-heart">לב ענקי שיש בו מקום לכולם</label>
+        <select id="sel-heart" name="sel-heart">
+            <option >משתפר ועושה מאמצים</option>
+            <option >מצויין</option>
+            <option > טוב מאוד מאוד</option>
+            <option >אלוף</option>
+        </select><br><br>
+        <label for="sel-calm">איפוק ורגיעה בזמן מצוקה</label>
+        <select id="sel-calm" name="sel-calm">
+            <option >משתפר ועושה מאמצים</option>
+            <option >מצויין</option>
+            <option > טוב מאוד מאוד</option>
+            <option >אלוף</option>
+        </select><br><br>
         <button type="button" onclick="updatePicture()">עדכן תמונה</button>
     </form>
-    <div id="output">
-        <img src="girl.png" alt="Your Image">
-
-        <div id="nameOutput"></div>
-        <div id="classOutput"></div>
-    </div>
+    <canvas id="canvas" width="794" height="1123"></canvas>
 
     <script>
         function updatePicture() {
             var name = document.getElementById('name').value;
             var className = document.getElementById('class').value;
-            document.getElementById('nameOutput').innerText = name;
-            document.getElementById('classOutput').innerText = className;
+            var selOrder = document.getElementById('sel-order').value;
+            var selFriend = document.getElementById('sel-friend').value;
+            var selHeart = document.getElementById('sel-heart').value;
+            var selCalm = document.getElementById('sel-calm').value;
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            var image = new Image();
 
-            document.getElementById('output').style.display = 'inline-block';
+            image.onload = function () {
+                context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+                context.font = '25px Arial';
+                context.fillStyle = 'black';
+                context.textAlign = 'center';
+
+                context.fillText(name, 260, 286); // Adjust the position as needed
+                context.fillText(className, 352, 337); // Adjust the position as needed
+
+                context.font = '12px Arial';
+                context.fillText(selOrder, 161, 505); // Adjust the position as needed
+                context.fillText(selFriend, 161, 565); // Adjust the position as needed
+                context.fillText(selHeart, 161, 628); // Adjust the position as needed
+                context.fillText(selCalm, 161, 689); // Adjust the position as needed
+
+
+                canvas.style.display = 'block';
+            };
+
+            image.src = 'girl.png'; // Replace with your image source
+
             document.getElementById('myForm').style.display = 'none';
+
+            // on click on canvas, print the position of the click
+            canvas.addEventListener('click', function (event) {
+                var rect = canvas.getBoundingClientRect();
+                var x = event.clientX - rect.left;
+                var y = event.clientY - rect.top;
+                console.log('x: ' + x + ', y: ' + y);
+            });
         }
-        
-    </script>
     </script>
 </body>
 
