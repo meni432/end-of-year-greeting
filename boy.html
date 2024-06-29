@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZH3X7EJ3WT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZH3X7EJ3WT');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form and Picture</title>
@@ -49,7 +58,9 @@
         }
 
         @media print {
-            form, h1 {
+
+            form,
+            h1 {
                 display: none;
             }
 
@@ -70,38 +81,38 @@
         <input type="text" id="class" name="class"><br><br>
         <label for="sel-friend">חברה טוב ונאמנה</label>
         <select id="sel-friend" name="sel-friend">
-            <option >מצויין</option>
-            <option >משתפר ועושה מאמצים</option>
-            <option >טוב מאוד מאוד</option>
-            <option >אלוף</option>
+            <option>מצויין</option>
+            <option>משתפר ועושה מאמצים</option>
+            <option>טוב מאוד מאוד</option>
+            <option>אלוף</option>
         </select><br><br>
         <label for="sel-calm">איפוק ורגיעה בזמן מצוקה</label>
         <select id="sel-calm" name="sel-calm">
-            <option >מצויין</option>
-            <option >משתפר ועושה מאמצים</option>
-            <option >טוב מאוד מאוד</option>
-            <option >אלוף</option>
+            <option>מצויין</option>
+            <option>משתפר ועושה מאמצים</option>
+            <option>טוב מאוד מאוד</option>
+            <option>אלוף</option>
         </select><br><br>
         <label for="sel-works">מתאמץ ומשקיע לעזור בבית</label>
         <select id="sel-works" name="sel-works">
-            <option >מצויין</option>
-            <option >משתפר ועושה מאמצים</option>
-            <option >טוב מאוד מאוד</option>
-            <option >אלוף</option>
+            <option>מצויין</option>
+            <option>משתפר ועושה מאמצים</option>
+            <option>טוב מאוד מאוד</option>
+            <option>אלוף</option>
         </select><br><br>
         <label for="sel-talk">מדבר ומסבירה מה מפריע לו</label>
         <select id="sel-talk" name="sel-talk">
-            <option >מצויין</option>
-            <option >משתפר ועושה מאמצים</option>
-            <option >טוב מאוד מאוד</option>
-            <option >אלוף</option>
+            <option>מצויין</option>
+            <option>משתפר ועושה מאמצים</option>
+            <option>טוב מאוד מאוד</option>
+            <option>אלוף</option>
         </select><br><br>
         <label for="sel-pro">יוזם בבית ובבית הספר</label>
         <select id="sel-pro" name="sel-pro">
-            <option >מצויין</option>
-            <option >משתפר ועושה מאמצים</option>
-            <option >טוב מאוד מאוד</option>
-            <option >אלוף</option>
+            <option>מצויין</option>
+            <option>משתפר ועושה מאמצים</option>
+            <option>טוב מאוד מאוד</option>
+            <option>אלוף</option>
         </select><br><br>
         <button type="button" onclick="updatePicture()">עדכן תמונה</button>
     </form>
@@ -163,7 +174,7 @@
             });
         }
     </script>
-    
+
 </body>
 
 </html>
