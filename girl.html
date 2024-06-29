@@ -169,6 +169,7 @@
 
             // on click on canvas download the image
             canvas.addEventListener('click', function () {
+                gtag('event', 'download_girl');
                 var link = document.createElement('a');
                 link.href = canvas.toDataURL();
                 link.download = 'greeting.png';
